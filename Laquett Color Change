@@ -1,0 +1,33 @@
+#chat .chat-container ul.chat-main li.user-560a8df0b776b203001e6735 .stream-item-content .activity-row .username {
+    background: linear-gradient(to right, #9400D3, #4B0082, #0000FF, #00FF00, #FFFF00, #FF7F00, #FF0000);
+    -webkit-background-clip: text;
+    text-shadow: 1px 1px 0 rgba(255,255,255,.25);
+    color: transparent;
+    width: 3.6rem;
+    margin-left: 1rem;
+}
+#chat .chat-container ul.chat-main li.user-560a8df0b776b203001e6735 .stream-item-content .activity-row .username .user-role {
+    width: calc(100% - 11rem);
+    position: absolute;
+    top: 1.2rem;
+}
+#chat .chat-container ul.chat-main li.user-560a8df0b776b203001e6735 .activity-row .username .user-role-icon {
+    background-image: url("http://i.imgur.com/lQKmbHD.png");
+    display: inline-block;
+    position: absolute;
+    left: 3.5rem;
+    top:12px;
+}
+#chat .chat-container ul.chat-main li.user-560a8df0b776b203001e6735.currentDJ .stream-item-content .activity-row .username {
+    margin-left: 2rem;  
+}
+#chat .chat-container ul.chat-main li.user-560a8df0b776b203001e6735.currentDJ .stream-item-content .activity-row .username::before {
+    position: absolute;
+    left: 4.5rem;
+}
+#chat .chat-container ul.chat-main li.user-560a8df0b776b203001e6735.currentDJ .stream-item-content .activity-row .username .user-role {
+    width: calc(100% - 12.5rem);
+}
+#chat .chat-container ul.chat-main li.user-560a8df0b776b203001e6735.currentDJ .activity-row .username .user-role-icon {
+    left: 5.5rem;  
+}
