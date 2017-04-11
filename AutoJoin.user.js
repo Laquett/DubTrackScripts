@@ -1,48 +1,26 @@
 // ==UserScript==
 // @name         [Dubtrack] AutoJoin
 // @namespace    None
-// @version      0.1
+// @version      0.2
 // @description  Dubtrack Autojoin Queue
-// @author       Laquett
+// @author       Anon
 // @match        http://*.dubtrack.fm/*
 // @match        https://*.dubtrack.fm/*
 // @grant        none
 // ==/UserScript==
 
-var DubTrack = document;
-
 setTimeout(function() {
     'use strict';
 
-    var inQueue = queueActive();
-
-    if (inQueue) {
-        DubTrack.Events.unbind("realtime:room_playlist-update", autoJoin);
-        return;
-    }else{
-        Dubtrack.Events.bind("reatime:room_playlist-update", autoJoin);
-        autoJoin();
-    }
-
-}, 10000);
-
-function queueActive() {
-
-    var leave = document.getElementsByClassName('leave-button');
-    if (leave)
-        return false;
-    else
-        return true;
-}
+    Dubtrack.Events.bind("reatime:room_playlist-update", autoJoin);
+    autoJoin();
+}, 15000);
 
 function autoJoin() {
 
-    var inQueue = queueActive();
-
-    if (inQueue) {
-        DubTrack.Events.unbind("realtime:room_playlist-update", autoJoin);
+    if (Dubtrack.playerController.inQueue)
         return;
-    }
+    else
+        $('.play-song-link').click();
 
-    $('.play-song-link').click();
 }
