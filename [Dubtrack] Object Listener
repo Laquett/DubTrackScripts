@@ -1,0 +1,30 @@
+// ==UserScript==
+// @name         [Dubtrack] Object Listener
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        http://*.dubtrack.fm/*
+// @match        https://*.dubtrack.fm/*
+// @grant        none
+// ==/UserScript==
+
+setTimeout(function() {
+    'use strict';
+
+    Dubtrack.Events.bind("realtime:room-update", function(e) {console.log(e);});
+    //Dubtrack.Events.bind("realtime:room_playlist-dub", function(e) {console.log(e);}); // e.dubtype updub|downdub e.user.username e.user._id
+    Dubtrack.Events.bind("realtime:room_playlist-queue-remove-user", function(e) {console.log(e);});
+    Dubtrack.Events.bind("realtime:room_playlist-queue-remove-user-song", function(e) {console.log(e);});
+    Dubtrack.Events.bind("realtime:room_playlist-queue-reorder", function(e) {console.log(e);});
+    Dubtrack.Events.bind("realtime:room_playlist-queue-update", function(e) {console.log(e);});
+    Dubtrack.Events.bind("realtime:room_playlist-queue-update-dub", function(e) {console.log(e);});
+    //Dubtrack.Events.bind("realtime:room_playlist-update", function(e) {console.log(e);}); // pulls current song e.startTime = current song time, e.songInfo.fkid e.songInfo.name e.songInfo.type = youtube
+    //Dubtrack.Events.bind("realtime:user-ban", function(e) {console.log(e);}); // e.kickedUser.username e.kickedUser._id / Person that banned e.user.username e.user._id
+    //Dubtrack.Events.bind("realtime:user-join", function(e) {console.log(e);}); // e.user.username e.user._id
+    //Dubtrack.Events.bind("realtime:user-kick", function(e) {console.log(e);}); // e.kickedUser.username e.kickedUser._id
+    Dubtrack.Events.bind("realtime:user-leave", function(e) {console.log(e);});
+    //Dubtrack.Events.bind("realtime:user-mute", function(e) {console.log(e);}); // e.mutedUser.username e.kickedUser._id / Person that muted e.user.username e.user._id
+    //Dubtrack.Events.bind("realtime:user-unmute", function(e) {console.log(e);}); // e.mutedUser.username e.kickedUser._id / Person that muted e.user.username e.user._id
+
+}, 5000);
